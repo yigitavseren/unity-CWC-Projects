@@ -2,24 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyOutOfBound : MonoBehaviour
+public class DestroyOutOfBounds : MonoBehaviour
 {
-    private float topBound = 30;
-    private float lowerBound = -10;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    // Bu, pizzalarýn çarpacaðý "üst" sýnýrdýr
+    private float topBound = 30.0f;
+
+    // Bu, hayvanlarýn çarpacaðý "alt" sýnýrdýr
+    private float lowerBound = -10.0f;
 
     // Update is called once per frame
     void Update()
     {
+        // ----- PÝZZALAR ÝÇÝN ÜST SINIR KONTROLÜ -----
+        // Eðer Z pozisyonum 30'un üstüne çýkarsa...
         if (transform.position.z > topBound)
         {
+            // ...kendimi yok et!
             Destroy(gameObject);
-        }else if(transform.position.z < lowerBound)
+        }
+
+        // ----- HAYVANLAR ÝÇÝN ALT SINIR KONTROLÜ -----
+        // Eðer Z pozisyonum -10'un altýna düþerse...
+        else if (transform.position.z < lowerBound)
         {
+            // ...kendimi yok et!
             Destroy(gameObject);
         }
     }
